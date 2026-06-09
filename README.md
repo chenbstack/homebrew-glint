@@ -12,6 +12,6 @@ brew install --cask glint
 ## 升级 / 卸载
 
 ```bash
-brew upgrade --cask glint
+brew update && brew upgrade --cask glint
 brew uninstall --cask glint
 ```
