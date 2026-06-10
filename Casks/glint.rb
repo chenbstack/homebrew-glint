@@ -12,6 +12,12 @@ cask "glint" do
     strategy :github_latest
   end
 
+  # Glint self-updates via Sparkle (including opt-in beta-channel builds),
+  # so the installed app routinely runs ahead of the cask's pinned stable
+  # version. Without this, `brew upgrade` would clobber a self-updated app
+  # with the older pinned dmg — i.e. silently downgrade beta users.
+  auto_updates true
+
   depends_on macos: ">= :sonoma"
 
   app "Glint.app"
