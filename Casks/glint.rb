@@ -18,7 +18,7 @@ cask "glint" do
   # with the older pinned dmg — i.e. silently downgrade beta users.
   auto_updates true
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Glint.app"
 
