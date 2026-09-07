@@ -24,10 +24,8 @@ cask "glint" do
 
   # Glint isn't Apple-notarized yet — strip the quarantine attribute so
   # Gatekeeper doesn't block the unsigned build at launch.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Glint.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Glint.app"]
   end
 
   zap trash: [
